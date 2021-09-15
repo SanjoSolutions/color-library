@@ -50,13 +50,13 @@
           const r = Number(match[1])
           const g = Number(match[2])
           const b = Number(match[3])
-          color = `#${toCapitalHexadecimal(r)}${toCapitalHexadecimal(g)}${toCapitalHexadecimal(b)}`
+          color = `#${toUpperCaseHexadecimal(r)}${toUpperCaseHexadecimal(g)}${toUpperCaseHexadecimal(b)}`
         }
         await navigator.clipboard.writeText(color)
       }
     })
 
-    function toCapitalHexadecimal(value) {
+    function toUpperCaseHexadecimal(value) {
       return value.toString(16).toUpperCase()
     }
   </script>
