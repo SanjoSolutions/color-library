@@ -43,10 +43,22 @@
       const target = event.target
       if (target.classList.contains('color')) {
         const $color = target
-        const color = $color.style.backgroundColor
+        let color = $color.style.backgroundColor
+        const colorRegExp = /rgb\((\d+), (\d+), (\d+)\)/
+        const match = colorRegExp.exec(color)
+        if (match) {
+          const r = Number(match[1])
+          const g = Number(match[2])
+          const b = Number(match[3])
+          color = `#${toCapitalHexadecimal(r)}${toCapitalHexadecimal(g)}${toCapitalHexadecimal(b)}`
+        }
         await navigator.clipboard.writeText(color)
       }
     })
+
+    function toCapitalHexadecimal(value) {
+      return value.toString(16).toUpperCase()
+    }
   </script>
 </body>
 </html>
