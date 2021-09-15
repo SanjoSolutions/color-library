@@ -1,5 +1,3 @@
 This work is devoted to God.
 
-## Demo
-
-[Demo](https://sanjosolutions.github.io/colors/)
+[Color library](https://sanjosolutions.github.io/color-library/)
