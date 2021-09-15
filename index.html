@@ -17,8 +17,8 @@
     .color {
       flex: 0 0 auto;
       box-sizing: border-box;
-      width: 1rem;
-      height: 1rem;
+      width: 4rem;
+      height: 4rem;
       border: 1px solid black;
       margin: 0 0.5rem 0.5rem 0;
       cursor: pointer;
@@ -27,18 +27,24 @@
 </head>
 <body>
   <script>
-    for (let hue = 0; hue < 360; hue += 1) {
+    const colors = [
+      '#ea6da7',
+      '#eaa16d'
+    ]
+
+    for (const color of colors) {
       const $color = document.createElement('div')
       $color.className = 'color'
-      $color.style.backgroundColor = `hsl(${hue}deg, 100%, 50%)`
+      $color.style.backgroundColor = color
       document.body.appendChild($color)
     }
 
-    document.addEventListener('click', function (event) {
+    document.addEventListener('click', async function (event) {
       const target = event.target
       if (target.classList.contains('color')) {
         const $color = target
-        document.body.style.backgroundColor = $color.style.backgroundColor
+        const color = $color.style.backgroundColor
+        await navigator.clipboard.writeText(color)
       }
     })
   </script>
