@@ -39,7 +39,7 @@
       document.body.appendChild($color)
     }
 
-    document.addEventListener('click', async function (event) {
+    document.addEventListener('click', async function copyColorToClipboard(event) {
       const target = event.target
       if (target.classList.contains('color')) {
         const $color = target
