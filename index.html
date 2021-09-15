@@ -21,6 +21,7 @@
       height: 1rem;
       border: 1px solid black;
       margin: 0 0.5rem 0.5rem 0;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -32,6 +33,14 @@
       $color.style.backgroundColor = `hsl(${hue}deg, 100%, 50%)`
       document.body.appendChild($color)
     }
+
+    document.addEventListener('click', function (event) {
+      const target = event.target
+      if (target.classList.contains('color')) {
+        const $color = target
+        document.body.style.backgroundColor = $color.style.backgroundColor
+      }
+    })
   </script>
 </body>
 </html>
